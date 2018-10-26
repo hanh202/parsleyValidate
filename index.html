@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./myStyle.css">
+</head>
+
+<body>
+    <div class="container ">
+        <form data-parsley-validate>
+            <label for="txtName">Name</label>
+            <input type="text" name="txtName" data-parsley-pattern="\d+" data-parsley-trigger="keyup">
+
+            <label for="txtEmail">Email</label>
+            <input type="text" name="txtEmail" class="form-control" data-parsley-type="email" data-parsley-trigger="change"><br>
+
+            <label for="txtPhone">Phone</label>
+            <input type="text" class="txtPhone" name="txtPhone" data-parsley-trigger="keyup"><br>
+
+            <label for="txtUrl">Url</label>
+            <input type="text" name="txtUrl" data-parsley-type="url" data-parsley-trigger="change"><br>
+
+            <label for="txtDate">Date</label>
+            <input type="text" class="txtDate" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo"><br>
+
+            <label for="txtPass">Pass</label>
+            <input type="text" id="txtPass" name="txtPass" data-parsley-trigger="change" data-parsley-pattern="^[a-z]+$"><br>
+
+            <label for="txtConfirm">Confirm Pass</label>
+            <input type="text" name="txtConfirm" data-parsley-trigger="keyup" data-parsley-equalto="#txtPass"><br>
+
+            <input type="submit" id="submit" value="submit">
+        </form>
+    </div>
+
+
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/parsleyjs/dist/parsley.min.js"></script>
+    <script src="./node_modules/moment/moment.js"></script>
+    <script src="./node_modules/cleave.js/dist/cleave.min.js"></script>
+    <script src="./node_modules/cleave.js/dist/addons/cleave-phone.i18n.js"></script>
+    <script src="./myParsley.js"></script>
+</body>
+
+</html>
