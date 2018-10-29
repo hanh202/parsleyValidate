@@ -25,33 +25,46 @@ $(document).ready(function () {
         }
     });
 
+
+    function checkDate(d1, d2) {
+        var date1 = stringToDate(d1.val());
+        var date2 = stringToDate(d2.val());
+
+        if (date1 > date2) {
+            d2.addClass('parsley-error');
+            return false;
+        }
+        d2.removeClass('parsley-error');
+        d1.removeClass('parsley-error');
+        return true;
+    }
+
+    var idDate1 = $('#txtDate1');
+    var idDate2 = $('#txtDate2');
+
+    window.Parsley.addValidator('checkdate', {
+        validate: function (value) {
+            if (checkDate(idDate1, idDate2)) {
+                value = true;
+            } else {
+                value = false;
+            }
+            return value;
+        },
+        messages: {
+            en: 'thich thi false 2'
+        }
+    });
+
     $('form').parsley({
         required: true
     });
 
-    var idDate1 = $('#txtDate1');
-    var idDate2 = $('#txtDate2');
+
 
     function stringToDate(str) {
         var arrDate = str.split('/');
         return new Date(arrDate[2], arrDate[1] - 1, arrDate[0]);
     }
-
-    idDate2.on('blur', function () {
-        var date1 = stringToDate(idDate1.val());
-        var date2 = stringToDate(idDate2.val());
-
-        console.log(typeof (date1), typeof (date2));
-
-        if (date1 > date2) {
-            console.log('date1 > date2 ===> error ne');
-            idDate2.addClass('parsley-error');
-            $('#date').append("<p class='parsley-errors-list'>Date1 > date2</p>");
-        } else {
-            console.log('good');
-        }
-
-
-    })
 
 });
