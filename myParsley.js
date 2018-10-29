@@ -25,6 +25,10 @@ $(document).ready(function () {
         }
     });
 
+    function stringToDate(str) {
+        var arrDate = str.split('/');
+        return new Date(arrDate[2], arrDate[1] - 1, arrDate[0]);
+    }
 
     function checkDate(d1, d2) {
         var date1 = stringToDate(d1.val());
@@ -34,8 +38,8 @@ $(document).ready(function () {
             d2.addClass('parsley-error');
             return false;
         }
-        d2.removeClass('parsley-error');
-        d1.removeClass('parsley-error');
+        // d2.removeClass('parsley-error');
+        // d1.removeClass('parsley-error');
         return true;
     }
 
@@ -52,7 +56,7 @@ $(document).ready(function () {
             return value;
         },
         messages: {
-            en: 'thich thi false 2'
+            en: 'thich thi error thoi'
         }
     });
 
@@ -62,9 +66,6 @@ $(document).ready(function () {
 
 
 
-    function stringToDate(str) {
-        var arrDate = str.split('/');
-        return new Date(arrDate[2], arrDate[1] - 1, arrDate[0]);
-    }
+
 
 });
