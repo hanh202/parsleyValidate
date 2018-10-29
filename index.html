@@ -13,29 +13,34 @@
 
 <body>
     <div class="container ">
-        <form data-parsley-validate>
+        <form data-parsley-validate class="w-50 m-auto">
             <label for="txtName">Name</label>
-            <input type="text" name="txtName" data-parsley-pattern="\d+" data-parsley-trigger="keyup">
+            <input type="text" name="txtName" class="form-control" data-parsley-pattern="\d+" data-parsley-trigger="keyup">
 
             <label for="txtEmail">Email</label>
-            <input type="text" name="txtEmail" class="form-control" data-parsley-type="email" data-parsley-trigger="change"><br>
+            <input type="text" name="txtEmail" class="form-control" data-parsley-type="email" data-parsley-trigger="change">
 
             <label for="txtPhone">Phone</label>
-            <input type="text" class="txtPhone" name="txtPhone" data-parsley-trigger="keyup"><br>
+            <input type="text" class="txtPhone form-control" name="txtPhone" data-parsley-trigger="keyup">
 
             <label for="txtUrl">Url</label>
-            <input type="text" name="txtUrl" data-parsley-type="url" data-parsley-trigger="change"><br>
+            <input type="text" name="txtUrl" class="form-control" data-parsley-type="url" data-parsley-trigger="change">
 
-            <label for="txtDate">Date</label>
-            <input type="text" class="txtDate" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo"><br>
+            <div class="d-flex my-2" id="date">
+                <label for="txtDate">Date</label>
+                <input type="text" id="txtDate1" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo">~
+                <input type="text" id="txtDate2" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo">
+            </div>
+
 
             <label for="txtPass">Pass</label>
-            <input type="text" id="txtPass" name="txtPass" data-parsley-trigger="change" data-parsley-pattern="^[a-z]+$"><br>
+            <input type="text" id="txtPass" class="form-control" name="txtPass" data-parsley-trigger="change" data-parsley-pattern="^[a-z]+$">
 
             <label for="txtConfirm">Confirm Pass</label>
-            <input type="text" name="txtConfirm" data-parsley-trigger="keyup" data-parsley-equalto="#txtPass"><br>
+            <input type="text" name="txtConfirm" class="form-control" data-parsley-trigger="keyup" data-parsley-equalto="#txtPass"><br>
 
             <input type="submit" id="submit" value="submit">
+
         </form>
     </div>
 
