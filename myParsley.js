@@ -35,7 +35,7 @@ $(document).ready(function () {
         var date2 = stringToDate(d2.val());
 
         if (date1 > date2) {
-            d2.addClass('parsley-error');
+            // d2.addClass('parsley-error');
             return false;
         }
         return true;
@@ -56,10 +56,30 @@ $(document).ready(function () {
         messages: {
             en: 'thich thi error thoi'
         }
+        // $('#date').parsley().addError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
     });
 
+    if (idDate1) {
+        console.log(idDate1.onblur);
+    } else {
+        console.log('error');
+    }
+
+
+
+    // window.Parsley.on('form:submit', function () {
+
+    //     if (!checkDate(idDate1, idDate2)) {
+    //         $('#date').parsley().addError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
+    //     } else {
+    //         $('#date').parsley().removeError('errordate', { updateClass: true });
+    //     }
+    //     return false;
+    // })
+
+
     $('form').parsley({
-        required: true
+        // required: true
     });
 
 

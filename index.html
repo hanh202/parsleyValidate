@@ -13,7 +13,7 @@
 
 <body>
     <div class="container ">
-        <form data-parsley-validate class="w-50 m-auto">
+        <form data-parsley-validate class="w-50 m-auto" id="form-validate">
             <label for="txtName">Name</label>
             <input type="text" name="txtName" class="form-control" data-parsley-pattern="\d+" data-parsley-trigger="keyup">
 
@@ -28,11 +28,12 @@
 
             <div class="d-flex my-2" id="date">
                 <label for="txtDate">Date</label>
-                <input type="text" id="txtDate1" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo"
-                    data-parsley-checkdate="">~
-                <input type="text" id="txtDate2" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1="foo"
-                    data-parsley-checkdate="">
+                <input type="text" id="txtDate1" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1
+                    required>~
+                <input type="text" id="txtDate2" class="txtDate flex-fill" name="txtDate" data-parsley-trigger="keyup" data-parsley-dateformat1
+                    required>
             </div>
+            <div class="error-date"></div>
 
 
             <label for="txtPass">Pass</label>
