@@ -38,8 +38,6 @@ $(document).ready(function () {
             d2.addClass('parsley-error');
             return false;
         }
-        // d2.removeClass('parsley-error');
-        // d1.removeClass('parsley-error');
         return true;
     }
 
