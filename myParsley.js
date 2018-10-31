@@ -44,26 +44,32 @@ $(document).ready(function () {
     var idDate1 = $('#txtDate1');
     var idDate2 = $('#txtDate2');
 
-    window.Parsley.addValidator('checkdate', {
-        validate: function (value) {
-            if (checkDate(idDate1, idDate2)) {
-                value = true;
-            } else {
-                value = false;
-            }
-            return value;
-        },
-        messages: {
-            en: 'thich thi error thoi'
-        }
-        // $('#date').parsley().addError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
-    });
+    // window.Parsley.addValidator('checkdate', {
+    //     validate: function (value) {
+    //         if (checkDate(idDate1, idDate2)) {
+    //             value = true;
+    //         } else {
+    //             value = false;
+    //         }
+    //         return value;
+    //     },
+    //     messages: {
+    //         en: 'thich thi error thoi'
+    //     }
+    // });
 
-    if (idDate1) {
-        console.log(idDate1.onblur);
-    } else {
-        console.log('error');
-    }
+
+    $('#date').on('keyup', function () {
+        if (idDate1.val() && idDate2.val() && idDate1.not('.parsley-error').length && idDate2.not('.parsley-error').length) {
+            if (checkDate(idDate1, idDate2)) {
+                $('#date').parsley().removeError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
+            } else {
+                if ($('.parsley-errordate').length == 0) {
+                    $('#date').parsley().addError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
+                }
+            }
+        }
+    })
 
 
 
@@ -79,7 +85,7 @@ $(document).ready(function () {
 
 
     $('form').parsley({
-        // required: true
+        required: true
     });
 
 
