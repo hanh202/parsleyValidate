@@ -35,7 +35,6 @@ $(document).ready(function () {
         var date2 = stringToDate(d2.val());
 
         if (date1 > date2) {
-            // d2.addClass('parsley-error');
             return false;
         }
         return true;
@@ -44,21 +43,7 @@ $(document).ready(function () {
     var idDate1 = $('#txtDate1');
     var idDate2 = $('#txtDate2');
 
-    // window.Parsley.addValidator('checkdate', {
-    //     validate: function (value) {
-    //         if (checkDate(idDate1, idDate2)) {
-    //             value = true;
-    //         } else {
-    //             value = false;
-    //         }
-    //         return value;
-    //     },
-    //     messages: {
-    //         en: 'thich thi error thoi'
-    //     }
-    // });
-
-
+    // check error date Success
     $('#date').on('keyup', function () {
         if (idDate1.val() && idDate2.val() && idDate1.not('.parsley-error').length && idDate2.not('.parsley-error').length) {
             if (checkDate(idDate1, idDate2)) {
@@ -71,17 +56,9 @@ $(document).ready(function () {
         }
     })
 
+    window.Parsley.on('form:submit', function () {
 
-
-    // window.Parsley.on('form:submit', function () {
-
-    //     if (!checkDate(idDate1, idDate2)) {
-    //         $('#date').parsley().addError('errordate', { message: 'Error: date 1 > date 2', updateClass: true });
-    //     } else {
-    //         $('#date').parsley().removeError('errordate', { updateClass: true });
-    //     }
-    //     return false;
-    // })
+    })
 
 
     $('form').parsley({
