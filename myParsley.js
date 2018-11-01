@@ -6,7 +6,7 @@ $(document).ready(function () {
         delimiter: '-'
     });
 
-    // var date = document.querySelectorAll('.txtDate');
+    var date = document.querySelectorAll('.txtDate');
     for (var i = 0; i < date.length; i++) {
         new Cleave(date[i], {
             date: true,
