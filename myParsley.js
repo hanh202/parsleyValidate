@@ -5,14 +5,14 @@ $(document).ready(function () {
         phoneRegionCode: 'VI',
         delimiter: '-'
     });
+    var date = document.querySelectorAll('.txtDate');
+    for (var i = 0; i < date.length; i++) {
+        new Cleave(date[i], {
+            date: true,
+            delimiter: '/',
+        });
+    }
 
-    // var date = document.querySelectorAll('.txtDate');
-    // for (var i = 0; i < date.length; i++) {
-    //     new Cleave(date[i], {
-    //         date: true,
-    //         delimiter: '/',
-    //     });
-    // }
     window.Parsley.addValidator('dateformat1', {
         validate: function (value, id) {
             var isValid = moment(value, ['DD/MM/YY', 'DD/MM/YYYY', 'DD-MM-YY', 'DD-MM-YYYY'], true).isValid();
